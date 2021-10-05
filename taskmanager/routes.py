@@ -10,7 +10,12 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    # Query the database by calling this function (by clicking categories) and
+    # retrieve all records from this table and sort them by name
+    # Quantifier .all() needs to be at end
+    categories = Category.query.order_by(Category.category_name).all()
+    # pass categories var into render template for displaying data on web page
+    return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
