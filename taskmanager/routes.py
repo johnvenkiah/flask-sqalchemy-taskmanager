@@ -12,9 +12,15 @@ def home():
 def categories():
     # Query the database by calling this function (by clicking categories) and
     # retrieve all records from this table and sort them by name
+
     # Quantifier .all() needs to be at end
-    categories = Category.query.order_by(Category.category_name).all()
+    # By using .all() method, this becomes a cursor object sim. to array/list
+
+    # Convert to python list with list method
+    categories = list(Category.query.order_by(Category.category_name).all())
     # pass categories var into render template for displaying data on web page
+
+    # categories 1 = var to be used in html, cat. 2 = list above
     return render_template("categories.html", categories=categories)
 
 
