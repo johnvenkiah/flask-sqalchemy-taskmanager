@@ -43,3 +43,29 @@ def edit_category(category_id):
         db.session.commit()
         return redirect(url_for("categories"))
     return render_template("edit_category.html", category=category)
+
+
+@app.route("/delete_category<int:category_id>")
+def delete_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+    return redirect(url_for("categories"))
+
+
+@app.route("/add_task", methods=["GET", "POST"])
+def add_task():
+    categories = list(Category.query.order_by(Category.category_name).all())
+    if request.method == "POST":
+        task = Task(
+            task_name,
+            task_description,
+            is_urgent,
+            due_date,
+            category_id
+        )
+        db.session.delete(category)
+        db.session.commit()
+        return redirect(url_for("categories"))
+    return render_template("add_category.html")
+
