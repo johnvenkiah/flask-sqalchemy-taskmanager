@@ -10,4 +10,6 @@ $(document).ready(function(){
 
     let selects = document.querySelectorAll("select");
     M.FormSelect.init(selects);
+
+    $('.collapsible').collapsible();
 });

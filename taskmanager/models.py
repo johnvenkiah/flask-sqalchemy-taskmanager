@@ -1,4 +1,4 @@
-from taskmanager import db
+from taskmanager import db  # noqa
 
 
 class Category(db.Model):
