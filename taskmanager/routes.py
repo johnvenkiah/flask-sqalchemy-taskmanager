@@ -24,6 +24,22 @@ def categories():
     return render_template("categories.html", categories=categories)
 
 
+@app.route("/tasks")
+def tasks():
+    # Query the database by calling this function (by clicking categories) and
+    # retrieve all records from this table and sort them by name
+
+    # Quantifier .all() needs to be at end
+    # By using .all() method, this becomes a cursor object sim. to array/list
+
+    # Convert to python list with list method
+    tasks = list(Task.query.order_by(Task.task_name).all())
+    # pass categories var into render template for displaying data on web page
+
+    # categories 1 = var to be used in html, cat. 2 = list above
+    return render_template("tasks.html", tasks=tasks)
+
+
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
