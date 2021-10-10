@@ -28,3 +28,11 @@
     "editor.defaultFormatter": "ms-python.python"
 }
 }
+{
+    # You have to put it in this order to make it works
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_flask_sqlalchemy",
+        "pylint_flask",                 # This package is optional
+    ]
+}
