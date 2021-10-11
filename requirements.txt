@@ -1,0 +1,11 @@
+click==8.0.1
+Flask==2.0.2
+Flask-SQLAlchemy==2.5.1
+greenlet==1.1.2
+itsdangerous==2.0.1
+psycopg2==2.9.1
+pylint-flask==0.6
+pylint-flask-sqlalchemy==0.2.0
+pylint-plugin-utils==0.6
+SQLAlchemy==1.4.25
+Werkzeug==2.0.1
